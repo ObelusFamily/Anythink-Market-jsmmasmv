@@ -11,8 +11,13 @@ function CommentInput (props) {
   
   const [body, setBody] = React.useState("")
   
-    const createComment = async (ev) => {
-
+    const createComment = async (ev) => {      
+      ev.preventDefault();
+      agent.Comments.create(props.slug, {
+        body: body,
+      }).then((payload) => {
+        props.onSubmit(payload);
+      });
       setBody({ body: "" });
     };
   
