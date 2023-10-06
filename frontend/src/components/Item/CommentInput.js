@@ -1,5 +1,5 @@
 import React from "react";
-import agent from "../../agent";
+
 import { connect } from "react-redux";
 import { ADD_COMMENT } from "../../constants/actionTypes";
 
@@ -12,12 +12,7 @@ function CommentInput (props) {
   const [body, setBody] = React.useState("")
   
     const createComment = async (ev) => {
-      ev.preventDefault();
-      agent.Comments.create(props.slug, {
-        body: body,
-      }).then((payload) => {
-        props.onSubmit(payload);
-      });
+
       setBody({ body: "" });
     };
   
