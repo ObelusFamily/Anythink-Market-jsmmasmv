@@ -11,7 +11,7 @@ function CommentInput (props) {
   
   const [body, setBody] = React.useState("")
   
-    createComment = async (ev) => {
+    const createComment = async (ev) => {
       ev.preventDefault();
       agent.Comments.create(props.slug, {
         body: body,
